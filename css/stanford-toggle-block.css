@@ -13,6 +13,14 @@
   position: relative;
 }
 
+@media (max-width: 480px) {
+  .left-side,
+  .right-side {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 .toggle-block-feature {
   position: absolute;
   top: 0px;
