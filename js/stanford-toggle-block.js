@@ -6,15 +6,24 @@ Drupal.behaviors.stanford_toggle_block = {
     // TODO: Make this in to a plugin.
     $(".toggle-block", context).each(function(i, v) {
       $me = $(v);
-      $links = $me.find(".su-toggle-links a");
+      $myLinks = $me.find(".toggle-links a");
 
-      $links.click(function(e) {
+      $myLinks.click(function(e) {
+
+        // Stop the click through.
         e.preventDefault();
-        $links = $(this).parents(".toggle-block").find(".su-toggle-links a");
+
+        // Handle the links active state.
+        $links = $(this).parents(".toggle-block").find(".toggle-links a");
+        $links.removeClass("active");
+        $(this).addClass("active");
+
+        // Handle the features active state.
         $features = $(this).parents(".toggle-block").find(".toggle-block-feature");
         $features.removeClass("active");
         $index = $links.index($(this));
         $features.eq($index).addClass("active");
+
       });
 
     });

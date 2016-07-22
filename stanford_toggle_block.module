@@ -30,3 +30,18 @@ function stanford_toggle_block_bean_types() {
 
   return $plugins;
 }
+
+
+/**
+ * Implements hook_block_view_alter().
+ */
+function stanford_toggle_block_block_view_alter(&$data, $block) {
+
+  // If the block is an toggle block we want to remove the subject.
+  if ($block->module == "bean") {
+    if ($data["content"]["bean"][$block->delta]["#bundle"] == "stanford_toggle_block") {
+      $data["subject"] = "";
+    }
+  }
+
+}

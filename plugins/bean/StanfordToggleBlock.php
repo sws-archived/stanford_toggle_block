@@ -34,12 +34,15 @@ class StanfordToggleBlock extends BeanDefault {
 
     // Nuke the existing content.
     $content = array();
+    $content["bean"][$bean->delta]["#bundle"] = "stanford_toggle_block";
+
+    $right['title']["#markup"] = "<h2 class=\"toggle-block-title\">" . $bean->label . "</h2>";
 
     // Set up the theme render arrays.
     $right['links']['#theme'] = "item_list";
     $right['links']['#items'] = array();
     $right['links']['#type'] = 'ul';
-    $right['links']['#attributes'] = array("class" => "su-toggle-links", "id" => "toggle-block-" . $bean->delta);
+    $right['links']['#attributes'] = array("class" => "toggle-links", "id" => "toggle-block-" . $bean->delta);
 
     // Loop through the field collections and create the toggle links.
     // And feature content.
@@ -58,16 +61,16 @@ class StanfordToggleBlock extends BeanDefault {
     $first = TRUE;
     foreach ($field_collections as $fc) {
 
-      // Toggle Links.
-      $toggle_link = isset($fc->field_s_toggle_links[LANGUAGE_NONE][0]['url']) ? $fc->field_s_toggle_links[LANGUAGE_NONE][0]['url'] : "#";
-      $right['links']['#items'][] = l($fc->field_s_toggle_link_label[LANGUAGE_NONE][0]['value'], $toggle_link);
-
       // Active on #1.
       $active = "";
       if ($first) {
         $active = "active";
         $first = FALSE;
       }
+
+      // Toggle Links.
+      $toggle_link = isset($fc->field_s_toggle_links[LANGUAGE_NONE][0]['url']) ? $fc->field_s_toggle_links[LANGUAGE_NONE][0]['url'] : "#";
+      $right['links']['#items'][] = l($fc->field_s_toggle_link_label[LANGUAGE_NONE][0]['value'], $toggle_link, array("attributes" => array("class" => $active)));
 
       // Feature block.
       $left[$fc->item_id]["#prefix"] = "<div class=\"toggle-block-feature $active\" id=\"toggle-feature-" . $fc->item_id . "\">";

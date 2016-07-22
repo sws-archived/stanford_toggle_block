@@ -24,3 +24,7 @@
   position: relative;
   display: block;
 }
+
+.toggle-links a.active {
+  background: #0F0;
+}
