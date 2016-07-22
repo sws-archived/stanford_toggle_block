@@ -1,0 +1,32 @@
+<?php
+/**
+ * @file
+ * Code for the Stanford Toggle Block feature.
+ */
+
+include_once 'stanford_toggle_block.features.inc';
+
+/**
+ * Implements hook_bean_types.
+ * This function exists only for installation purposes and beans are
+ * exported and managed through the ui.
+ * See: https://drupal.org/node/1897834 for issue details.
+ *
+ * @return array of bean types
+ */
+function stanford_toggle_block_bean_types() {
+  include_once "stanford_toggle_block.bean.inc";
+  $plugins = array();
+  $plugins = stanford_toggle_block_bean_admin_ui_types();
+
+  // Change the handler to our bean class.
+  $plugins['stanford_toggle_block'] = (array) $plugins['stanford_toggle_block'];
+  $plugins['stanford_toggle_block']["handler"] = array(
+    'class' => 'StanfordToggleBlock',
+    'parent' => 'BeanPlugin',
+    'path' => drupal_get_path("module", "stanford_toggle_block") . "/plugins/bean",
+    'file' => 'StanfordToggleBlock.php',
+  );
+
+  return $plugins;
+}

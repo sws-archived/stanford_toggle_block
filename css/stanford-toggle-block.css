@@ -1,0 +1,26 @@
+/**
+ * Toggle Block Styles.
+ */
+
+.left-side,
+.right-side {
+  max-width: 50%;
+  width: 50%;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  vertical-align: top;
+  position: relative;
+}
+
+.toggle-block-feature {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: none;
+}
+
+.toggle-block-feature.active {
+  position: relative;
+  display: block;
+}
