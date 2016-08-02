@@ -36,3 +36,17 @@
 .toggle-links a.active {
   background: #0F0;
 }
+
+.toggle-block-content {
+  position: absolute;
+  z-index: 1;
+  background: #FFF;
+  bottom: 0px;
+  width: 90%;
+  padding: 3%;
+  left: 2%;
+}
+
+.field-name-field-s-toggle-links .field-item {
+  display: inline-block;
+}
