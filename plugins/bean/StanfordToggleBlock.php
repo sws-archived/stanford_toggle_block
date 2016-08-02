@@ -36,13 +36,13 @@ class StanfordToggleBlock extends BeanDefault {
     $content = array();
     $content["bean"][$bean->delta]["#bundle"] = "stanford_toggle_block";
 
-    $right['title']["#markup"] = "<h2 class=\"toggle-block-title\">" . $bean->label . "</h2>";
+    $left['title']["#markup"] = "<h2 class=\"toggle-block-title\">" . $bean->title . "</h2>";
 
     // Set up the theme render arrays.
-    $right['links']['#theme'] = "item_list";
-    $right['links']['#items'] = array();
-    $right['links']['#type'] = 'ul';
-    $right['links']['#attributes'] = array("class" => "toggle-links", "id" => "toggle-block-" . $bean->delta);
+    $left['links']['#theme'] = "item_list";
+    $left['links']['#items'] = array();
+    $left['links']['#type'] = 'ul';
+    $left['links']['#attributes'] = array("class" => "toggle-links", "id" => "toggle-block-" . $bean->delta);
 
     // Loop through the field collections and create the toggle links.
     // And feature content.
@@ -70,29 +70,28 @@ class StanfordToggleBlock extends BeanDefault {
 
       // Toggle Links.
       $toggle_link = isset($fc->field_s_toggle_links[LANGUAGE_NONE][0]['url']) ? $fc->field_s_toggle_links[LANGUAGE_NONE][0]['url'] : "#";
-      $right['links']['#items'][] = l($fc->field_s_toggle_link_label[LANGUAGE_NONE][0]['value'], $toggle_link, array("attributes" => array("class" => $active)));
+      $left['links']['#items'][] = l($fc->field_s_toggle_link_label[LANGUAGE_NONE][0]['value'], $toggle_link, array("attributes" => array("class" => $active)));
 
       // Feature block.
-      $left[$fc->item_id]["#prefix"] = "<div class=\"toggle-block-feature $active\" id=\"toggle-feature-" . $fc->item_id . "\">";
-      $left[$fc->item_id]["#suffix"] = "</div>";
+      $right[$fc->item_id]["#prefix"] = "<div class=\"toggle-block-feature $active\" id=\"toggle-feature-" . $fc->item_id . "\">";
+      $right[$fc->item_id]["#suffix"] = "</div>";
 
       // Image.
-      $left[$fc->item_id]['image'] = field_view_field('field_collection_item', $fc, 'field_s_toggle_image', array("label" => "hidden"));
-      $left[$fc->item_id]['image']["#prefix"] = "<div class=\"toggle-block-image\">";
-      $left[$fc->item_id]['image']["#suffix"] = "</div>";
-      $left[$fc->item_id]['image']["#weight"] = 0;
+      $right[$fc->item_id]['image'] = field_view_field('field_collection_item', $fc, 'field_s_toggle_image', array("label" => "hidden"));
+      $right[$fc->item_id]['image']["#prefix"] = "<div class=\"toggle-block-image\">";
+      $right[$fc->item_id]['image']["#suffix"] = "</div>";
+      $right[$fc->item_id]['image']["#weight"] = 0;
+
+      $body = array();
+      $body['body'] = field_view_field('field_collection_item', $fc, 'field_s_toggle_content', array("label" => "hidden"));
+      $body['links'] = field_view_field('field_collection_item', $fc, 'field_s_toggle_links', array("label" => "hidden"));
+      $body['links']['#weight'] = 5;
 
       // Content.
-      $left[$fc->item_id]['content'] = field_view_field('field_collection_item', $fc, 'field_s_toggle_content', array("label" => "hidden"));
-      $left[$fc->item_id]['content']["#prefix"] = "<div class=\"toggle-block-content\">";
-      $left[$fc->item_id]['content']["#suffix"] = "</div>";
-      $left[$fc->item_id]['content']["#weight"] = 10;
-
-      // Links.
-      $left[$fc->item_id]['links'] = field_view_field('field_collection_item', $fc, 'field_s_toggle_links', array("label" => "hidden"));
-      $left[$fc->item_id]['links']["#prefix"] = "<div class=\"toggle-block-links\">";
-      $left[$fc->item_id]['links']["#suffix"] = "</div>";
-      $left[$fc->item_id]['links']["#weight"] = 20;
+      $right[$fc->item_id]['content'] = $body;
+      $right[$fc->item_id]['content']["#prefix"] = "<div class=\"toggle-block-content\">";
+      $right[$fc->item_id]['content']["#suffix"] = "</div>";
+      $right[$fc->item_id]['content']["#weight"] = 10;
 
     }
 
