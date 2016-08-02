@@ -1,9 +1,6 @@
-/**
- * Toggle Block Styles.
- */
+/* Toggle Block Styles */
 
-.left-side,
-.right-side {
+.left-side, .right-side {
   max-width: 50%;
   width: 50%;
   display: inline-block;
@@ -11,14 +8,6 @@
   padding: 0px;
   vertical-align: top;
   position: relative;
-}
-
-@media (max-width: 480px) {
-  .left-side,
-  .right-side {
-    width: 100%;
-    max-width: 100%;
-  }
 }
 
 .toggle-block-feature {
@@ -33,20 +22,101 @@
   display: block;
 }
 
-.toggle-links a.active {
-  background: #0F0;
-}
-
 .toggle-block-content {
   position: absolute;
+  bottom: 0;
+  left: 0;
   z-index: 1;
-  background: #FFF;
-  bottom: 0px;
-  width: 90%;
-  padding: 3%;
-  left: 2%;
+  width: 100%;
+  max-width: 100%;
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.75);
+  font-size: 1.1em;
+  font-weight: 600;
+  line-height: 1.6em;
+  padding: 0;
+}
+
+.toggle-block-content a.btn.feature-btn {
+  margin-right: 1em;
+  margin-bottom: 0.5em;
+}
+
+.toggle-block-content .field-name-field-s-toggle-content {
+  padding: 3% 8%;
+  padding-bottom: 0;
+}
+
+.toggle-block-content .field-name-field-s-toggle-links {
+  padding: 3% 8%;
+  padding-top: 0;
 }
 
 .field-name-field-s-toggle-links .field-item {
   display: inline-block;
+}
+
+.toggle-block .content ul li {
+  color: #8c1515;
+  list-style-type: none;
+  margin-bottom: 1.2em;
+}
+
+.toggle-links a {
+  font-size: 1.2em;
+  color: #8c1515;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.toggle-links a:before {
+  font-family: 'FontAwesome';
+  font-size: 10px;
+  content: '\f10c';
+  margin: 0 10px 0 -18px;
+  vertical-align: middle;
+}
+
+.toggle-links a:hover, .toggle-links a:focus {
+  color: #8c1515;
+  text-decoration: none;
+  border-bottom: 1px solid #8c1515;
+}
+
+.toggle-links a.active {
+  color: #8c1515;
+  font-weight: 600;
+}
+
+.toggle-links a.active:before {
+  font-family: 'FontAwesome';
+  font-size: 10px;
+  content: '\f111';
+  margin: 0 10px 0 -18px;
+  vertical-align: middle;
+}
+
+.toggle-links a.active:hover, .toggle-links a.active:focus {
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.toggle-links .first {
+  margin-top: 2em;
+}
+
+
+/* RESPONSIVE STYLES */
+
+@media (max-width: 480px) {
+  .left-side, .right-side {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 979px) {
+  .toggle-block-content {
+    position: static;
+    background: #f8f7f2;
+  }
 }
