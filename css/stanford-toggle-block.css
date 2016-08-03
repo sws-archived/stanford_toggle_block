@@ -17,7 +17,7 @@
   display: block;
   visibility: hidden;
   opacity: 0;
-  transition: all 0.75s ease-in-out;
+  transition: all 1s ease-in-out;
   z-index: -1;
 }
 
@@ -31,7 +31,7 @@
 
 .toggle-block-content {
   position: absolute;
-  bottom: 0;
+  bottom: -150px;
   left: 0;
   z-index: 1;
   width: 100%;
@@ -41,6 +41,12 @@
   font-weight: 600;
   line-height: 1.6em;
   padding: 0;
+  transition: 1s;
+}
+
+.toggle-block-feature.active .toggle-block-content {
+  bottom: 0;
+  transition: 2s;
 }
 
 .toggle-block-content a.btn.feature-btn {
@@ -58,7 +64,7 @@
   padding-top: 0;
 }
 
-.field-name-field-s-toggle-links .field-item {
+.toggle-block-content .field-name-field-s-toggle-links .field-item {
   display: inline-block;
 }
 
