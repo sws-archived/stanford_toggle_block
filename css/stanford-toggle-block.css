@@ -17,8 +17,9 @@
   display: block;
   visibility: hidden;
   opacity: 0;
-  transition: all 1s ease-in-out;
+  transition: all .5s ease-in-out;
   z-index: -1;
+  overflow: hidden;
 }
 
 .toggle-block-feature.active {
@@ -41,12 +42,12 @@
   font-weight: 600;
   line-height: 1.6em;
   padding: 0;
-  transition: 1s;
+  transition: .5s;
 }
 
 .toggle-block-feature.active .toggle-block-content {
   bottom: 0;
-  transition: 2s;
+  transition: 1s;
 }
 
 .toggle-block-content a.btn.feature-btn {
