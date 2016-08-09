@@ -45,3 +45,18 @@ function stanford_toggle_block_block_view_alter(&$data, $block) {
   }
 
 }
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function stanford_toggle_block_form_bean_form_alter(&$form, &$form_state) {
+
+  // Only work on the stanford_gallery bean type.
+  if (!isset($form['#bundle']) || $form['#bundle'] !== "stanford_toggle_block") {
+    return;
+  }
+
+  // Get rid of beans view mode option.
+  $form['view_mode']['#access'] = FALSE;
+}
