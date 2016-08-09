@@ -59,4 +59,7 @@ function stanford_toggle_block_form_bean_form_alter(&$form, &$form_state) {
 
   // Get rid of beans view mode option.
   $form['view_mode']['#access'] = FALSE;
+  $form['redirect']['#access'] = FALSE;
+  $form['revision']['log']['#access'] = FALSE;
+
 }
