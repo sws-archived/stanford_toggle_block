@@ -20,30 +20,57 @@ function stanford_toggle_block_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Add/Edit Content',
-    'weight' => '1',
+    'label' => 'Content & Images',
+    'weight' => '2',
     'children' => array(
       0 => 'field_s_toggle_content',
       1 => 'field_s_toggle_image',
       2 => 'field_s_toggle_links',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Add/Edit Content',
+      'label' => 'Content & Images',
       'instance_settings' => array(
         'required_fields' => 1,
-        'id' => '',
         'classes' => '',
         'description' => '',
       ),
-      'formatter' => 'collapsed',
+      'formatter' => 'closed',
     ),
   );
   $field_groups['group_s_toggle_block_item|field_collection_item|field_s_toggle_tab|form'] = $field_group;
 
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_toggle_block_link|field_collection_item|field_s_toggle_tab|form';
+  $field_group->group_name = 'group_toggle_block_link';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_s_toggle_tab';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Toggle Link',
+    'weight' => '0',
+    'children' => array(
+      0 => 'field_s_toggle_link_label',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-toggle-block-link field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_toggle_block_link|field_collection_item|field_s_toggle_tab|form'] = $field_group;
+
   // Translatables
   // Included for use with string extractors like potx.
-  t('Add/Edit Content');
+  t('Content & Images');
+  t('Toggle Link');
 
   return $field_groups;
 }
