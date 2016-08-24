@@ -104,7 +104,7 @@ class StanfordToggleBlock extends BeanDefault {
     $content['left']["#suffix"] = "</div>";
 
     $content['right'] = $right;
-    $content['right']["#prefix"] = "<div class=\"right-side\" id=\"picture info\" aria-live=\"polite\" role=\"region\">";
+    $content['right']["#prefix"] = "<div class=\"right-side toggle-content-info\" aria-live=\"polite\" role=\"region\">";
     $content['right']["#suffix"] = "</div>";
 
     // Add some CSS and JS.
