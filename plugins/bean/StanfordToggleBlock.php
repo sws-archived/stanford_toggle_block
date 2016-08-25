@@ -42,7 +42,7 @@ class StanfordToggleBlock extends BeanDefault {
     $left['links']['#theme'] = "item_list";
     $left['links']['#items'] = array();
     $left['links']['#type'] = 'ul';
-    $left['links']['#attributes'] = array("aria-controls" => "toggle-info", "class" => "toggle-links", "id" => "toggle-block-" . $bean->delta);
+    $left['links']['#attributes'] = array("aria-controls" => "$bean->delta", "class" => "toggle-links", "id" => "toggle-block-" . $bean->delta);
 
     // Loop through the field collections and create the toggle links.
     // And feature content.
