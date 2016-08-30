@@ -28,6 +28,20 @@ Drupal.behaviors.stanford_toggle_block = {
 
     });
 
+    // For each toggle block
+    // Find all left sidebar links
+    // For each sidebar link set the tab index and increment the indexcount by 1
+    // Then find all of the links in the right sidebar block that match the left link
+    // Add a tab index to each of those and increment by one each time
+    // Move on to the next left sidebar link and repeat
+
+    // $(toggle-block).each()
+    //  $links = $toggle-block.find("toggle-links a")
+    //    $links.each()
+    //      $(features).index(of toggle link).each()
+    //        tabindex ++
+    //
+
   })(jQuery);
 
   }
