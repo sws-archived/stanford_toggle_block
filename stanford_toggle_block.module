@@ -7,6 +7,15 @@
 include_once 'stanford_toggle_block.features.inc';
 
 /**
+ * Implements hook_bean_types_api_info().
+ */
+function stanford_toggle_block_bean_types_api_info($module = NULL, $api = NULL) {
+  if ($module == "bean" && $api == "types") {
+    return array("version" => "5");
+  }
+}
+
+/**
  * Implements hook_bean_types.
  * This function exists only for installation purposes and beans are
  * exported and managed through the ui.
