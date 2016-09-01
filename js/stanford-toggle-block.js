@@ -3,6 +3,8 @@ Drupal.behaviors.stanford_toggle_block = {
 
   (function ($) {
 
+    var $tabi = 1;
+
     // TODO: Make this in to a plugin.
     $(".toggle-block", context).each(function(i, v) {
       $me = $(v);
@@ -26,18 +28,11 @@ Drupal.behaviors.stanford_toggle_block = {
 
       });
 
-    });
-
-    // Incremental counter
-    var $tabi = 1;
-
-    $(".toggle-block", context).each(function(i, v) {
-      $me = $(v);
-      $myLinks = $me.find(".toggle-links a");
-
+      // Incremental counter, increasing the link index count by 1
       $myLinks.each(function(ii, vv) {
         $thelink = $(vv);
         $thelink.attr("tabindex", $tabi++);
+        // Incremental counter, increasing the button links within the block's content by 1
         var $featureLinks = $thelink
                               .parents(".toggle-block")
                               .find(".toggle-block-feature")
@@ -47,9 +42,7 @@ Drupal.behaviors.stanford_toggle_block = {
         $featureLinks.attr("tabindex", $tabi++);
       });
 
-
     });
-
 
   })(jQuery);
 
