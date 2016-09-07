@@ -101,6 +101,44 @@ function stanford_toggle_block_field_default_field_bases() {
     'type' => 'link_field',
   );
 
+  // Exported field_base: 'field_s_toggle_post_link_text'.
+  $field_bases['field_s_toggle_post_link_text'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_s_toggle_post_link_text',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_with_summary',
+  );
+
+  // Exported field_base: 'field_s_toggle_pre_link_text'.
+  $field_bases['field_s_toggle_pre_link_text'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_s_toggle_pre_link_text',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_with_summary',
+  );
+
   // Exported field_base: 'field_s_toggle_tab'.
   $field_bases['field_s_toggle_tab'] = array(
     'active' => 1,
