@@ -22,8 +22,8 @@
 .right-side {
   background: #ffffff;
   padding: 0;
-  width: 51%;
-  max-width: 51%;
+  width: 55%;
+  max-width: 55%;
 }
 
 .toggle-block-feature {
@@ -135,6 +135,7 @@
   }
   .toggle-block-feature {
     padding: 0;
+    transition: none;
   }
   .right-side {
     background: transparent;
