@@ -17,6 +17,8 @@ Drupal.behaviors.stanford_toggle_block = {
 
     // TODO: Make this in to a real plugin.
     $(".toggle-block", context).each(function(i, v) {
+      
+      // The toggle block element we are working on.
       $me = $(v);
 
       // The left side links that will have the click handler to change the
