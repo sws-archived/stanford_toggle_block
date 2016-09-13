@@ -2,28 +2,30 @@ Drupal.behaviors.stanford_toggle_block = {
   attach: function(context, settings) {
 
 /**
-* Create the toggle block show/hide functionality.
-*
-* By adding click handlers
-* to the left side links. Add accessibility improvements by setting the tab
-* index order on the links within each toggle block.
-*/
+ * Create the toggle block show/hide functionality.
+ *
+ * By adding click handlers
+ * to the left side links. Add accessibility improvements by setting the tab
+ * index order on the links within each toggle block.
+ */
 
   (function ($) {
+    
     // Index counter. For the tab index attribute. Needs to be global because
     // we want to increment with the dom.
-
-
     var $tabi = 1;
 
-    // TODO: Make this in to a plugin.
+    // TODO: Make this in to a real plugin.
     $(".toggle-block", context).each(function(i, v) {
       $me = $(v);
 
       // The left side links that will have the click handler to change the
       // feature content.
       $myLinks = $me.find(".toggle-links a");
+      
+      // The list items that contain the toggle links.
       $myLis = $me.find(".toggle-links > li");
+      
       // Add a click handler that then shows/hides the correct feature content
       // and prevents the default click through.
       $myLinks.click(function(e) {
@@ -37,7 +39,8 @@ Drupal.behaviors.stanford_toggle_block = {
         // left sidebar links in this toggle block.
         $lis = $(this).parents(".toggle-block").find(".toggle-links > li");
         $lis.removeClass("active");
-        // Parent should be the li.
+        
+        // Parent should be the li. This is the <a> element.
         $(this).parent().addClass("active");
 
         // Handle the features active state.
@@ -61,9 +64,9 @@ Drupal.behaviors.stanford_toggle_block = {
       $myLinks.each(function(ii, vv) {
         $thelink = $(vv);
         $thelink.attr("tabindex", $tabi++);
+        
         // Incremental counter, increasing the button links within the block's
         // feature content content by 1.
-        // Incremental counter, increasing the button links within the block's content by 1
         var $featureLinks = $thelink
                               .parents(".toggle-block")
                               .find(".toggle-block-feature")
