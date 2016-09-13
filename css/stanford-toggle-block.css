@@ -6,6 +6,10 @@
   margin-bottom: 1em;
 }
 
+.main .toggle-block .block {
+  margin-bottom: 0;
+}
+
 .left-side, .right-side {
   padding: 0;
   display: inline-block;
@@ -49,7 +53,7 @@
 
 .toggle-block-content {
   position: absolute;
-  bottom: -100px;
+  bottom: -10px;
   left: 0;
   z-index: 1;
   width: 100%;
