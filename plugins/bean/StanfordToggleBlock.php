@@ -36,13 +36,24 @@ class StanfordToggleBlock extends BeanDefault {
     $content = array();
     $content["bean"][$bean->delta]["#bundle"] = "stanford_toggle_block";
 
-    $left['title']["#markup"] = "<h2 class=\"toggle-block-title\">" . $bean->title . "</h2>";
+    // The title.
+    $left['title']['#markup'] = "<h2 class=\"toggle-block-title\">" . $bean->title . "</h2>";
+    $left['title']['#weight'] = -99;
+
+    // Pre link text.
+    $left['pre_links'] = field_view_field("bean", $bean, 'field_s_toggle_pre_link_text', array("label" => "hidden"));
+    $left['pre_links']['#weight'] = -10;
 
     // Set up the theme render arrays.
     $left['links']['#theme'] = "item_list";
     $left['links']['#items'] = array();
     $left['links']['#type'] = 'ul';
     $left['links']['#attributes'] = array("aria-controls" => "$bean->delta", "class" => "toggle-links", "id" => "toggle-block-" . $bean->delta);
+    $left['links']['#weight'] = 0;
+
+    // Post link text.
+    $left['post_links'] = field_view_field("bean", $bean, 'field_s_toggle_post_link_text', array("label" => "hidden"));
+    $left['post_links']['#weight'] = 10;
 
     // Loop through the field collections and create the toggle links.
     // And feature content.
@@ -59,7 +70,7 @@ class StanfordToggleBlock extends BeanDefault {
     $field_collections = entity_load("field_collection_item", $field_collection_ids);
 
     $first = TRUE;
-    foreach ($field_collections as $fc) {
+    foreach ($field_collections as $ii => $fc) {
 
       // Active on #1.
       $active = "";
@@ -70,7 +81,15 @@ class StanfordToggleBlock extends BeanDefault {
 
       // Toggle Links.
       $toggle_link = isset($fc->field_s_toggle_links[LANGUAGE_NONE][0]['url']) ? $fc->field_s_toggle_links[LANGUAGE_NONE][0]['url'] : "#";
-      $left['links']['#items'][] = l($fc->field_s_toggle_link_label[LANGUAGE_NONE][0]['value'], $toggle_link, array("attributes" => array("class" => $active)));
+      $left['links']['#items'][$ii] = l($fc->field_s_toggle_link_label[LANGUAGE_NONE][0]['value'], $toggle_link);
+
+      // Set the first LI to be active.
+      if ($active) {
+        $left['links']['#items'][$ii] = array(
+          'data' => $left['links']['#items'][$ii],
+          'class' => array($active),
+        );
+      }
 
       // Feature block.
       $right[$fc->item_id]["#prefix"] = "<div class=\"toggle-block-feature $active\" id=\"toggle-feature-" . $fc->item_id . "\">";

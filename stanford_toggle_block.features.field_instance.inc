@@ -10,6 +10,132 @@
 function stanford_toggle_block_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance:
+  // 'bean-stanford_toggle_block-field_s_toggle_post_link_text'.
+  $field_instances['bean-stanford_toggle_block-field_s_toggle_post_link_text'] = array(
+    'bundle' => 'stanford_toggle_block',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Add optional text that will appear below the toggle links.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'bean',
+    'field_name' => 'field_s_toggle_post_link_text',
+    'label' => 'Post-link Text',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'content_editor_text_format' => 'content_editor_text_format',
+          'filtered_html' => 'filtered_html',
+          'full_html' => 'full_html',
+          'plain_text' => 'plain_text',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'content_editor_text_format' => array(
+              'weight' => -10,
+            ),
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+          ),
+        ),
+      ),
+      'display_summary' => 0,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 10,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'bean-stanford_toggle_block-field_s_toggle_pre_link_text'.
+  $field_instances['bean-stanford_toggle_block-field_s_toggle_pre_link_text'] = array(
+    'bundle' => 'stanford_toggle_block',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Add optional text that will appear above the toggle links.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'bean',
+    'field_name' => 'field_s_toggle_pre_link_text',
+    'label' => 'Pre-link Text',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'content_editor_text_format' => 'content_editor_text_format',
+          'filtered_html' => 'filtered_html',
+          'full_html' => 'full_html',
+          'plain_text' => 'plain_text',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'content_editor_text_format' => array(
+              'weight' => -10,
+            ),
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+          ),
+        ),
+      ),
+      'display_summary' => 0,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 10,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance: 'bean-stanford_toggle_block-field_s_toggle_tab'.
   $field_instances['bean-stanford_toggle_block-field_s_toggle_tab'] = array(
     'bundle' => 'stanford_toggle_block',
@@ -28,7 +154,7 @@ function stanford_toggle_block_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 0,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'bean',
@@ -43,7 +169,7 @@ function stanford_toggle_block_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -148,7 +274,7 @@ function stanford_toggle_block_field_default_field_instances() {
     'label' => 'Feature Image',
     'required' => 0,
     'settings' => array(
-      'alt_field' => 0,
+      'alt_field' => 1,
       'default_image' => 0,
       'file_directory' => 'toggle-block',
       'file_extensions' => 'png gif jpg jpeg',
@@ -168,50 +294,6 @@ function stanford_toggle_block_field_default_field_instances() {
         'insert_default' => 'auto',
         'insert_styles' => array(
           'auto' => 'auto',
-          'colorbox__3-col-header' => 0,
-          'colorbox__4-col-header' => 0,
-          'colorbox__6-col-banner' => 0,
-          'colorbox__6-col-banner-short' => 0,
-          'colorbox__6-col-banner-tall' => 0,
-          'colorbox__6-col-photo-landscape' => 0,
-          'colorbox__8-col-banner' => 0,
-          'colorbox__8-col-banner-short' => 0,
-          'colorbox__8-col-banner-tall' => 0,
-          'colorbox__9-col-banner' => 0,
-          'colorbox__9-col-banner-short' => 0,
-          'colorbox__12-col-banner' => 0,
-          'colorbox__12-col-banner-tall' => 0,
-          'colorbox__banner-850x400' => 0,
-          'colorbox__full-width-banner' => 0,
-          'colorbox__full-width-banner-short' => 0,
-          'colorbox__half-page-profile' => 0,
-          'colorbox__huge-landscape' => 0,
-          'colorbox__icon-profile' => 0,
-          'colorbox__icon-scaled' => 0,
-          'colorbox__icon-square' => 0,
-          'colorbox__large' => 0,
-          'colorbox__large-landscape' => 0,
-          'colorbox__large-landscape-scaled' => 0,
-          'colorbox__large-profile' => 0,
-          'colorbox__large-profile-scaled' => 0,
-          'colorbox__large-scaled' => 0,
-          'colorbox__large-square' => 0,
-          'colorbox__med-landscape' => 0,
-          'colorbox__med-landscape-scaled' => 0,
-          'colorbox__med-profile' => 0,
-          'colorbox__med-profile-scaled' => 0,
-          'colorbox__med-square' => 0,
-          'colorbox__medium' => 0,
-          'colorbox__page-width' => 0,
-          'colorbox__sm-landscape' => 0,
-          'colorbox__sm-profile' => 0,
-          'colorbox__sm-profile-scaled' => 0,
-          'colorbox__sm-scaled' => 0,
-          'colorbox__sm-square' => 0,
-          'colorbox__thmb-landscape' => 0,
-          'colorbox__thmb-profile' => 0,
-          'colorbox__thmb-square' => 0,
-          'colorbox__thumbnail' => 0,
           'icon_link' => 0,
           'image' => 0,
           'image_3-col-header' => 0,
@@ -390,17 +472,21 @@ function stanford_toggle_block_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Add optional text that will appear above the toggle links.');
+  t('Add optional text that will appear below the toggle links.');
   t('Big buttony links that appear below the feature content.');
   t('Feature Content');
   t('Feature Image');
   t('Feature Links');
   t('Featured content.');
+  t('Post-link Text');
+  t('Pre-link Text');
   t('Toggle Link Label');
   t('Toggle Tab');
 

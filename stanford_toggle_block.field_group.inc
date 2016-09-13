@@ -56,6 +56,8 @@ function stanford_toggle_block_field_group_info() {
       0 => 'field_s_toggle_content',
       1 => 'field_s_toggle_image',
       2 => 'field_s_toggle_links',
+      3 => 'field_s_toggle_pre_link_txt',
+      4 => 'field_s_toggle_post_link_txt',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

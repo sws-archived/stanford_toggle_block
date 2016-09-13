@@ -1,13 +1,29 @@
 /* Toggle Block Styles */
 
+.toggle-block {
+  background: #e9e6df;
+  padding: 20px;
+  margin-bottom: 1em;
+}
+
 .left-side, .right-side {
-  max-width: 50%;
-  width: 50%;
+  padding: 0;
   display: inline-block;
   margin: 0px;
-  padding: 0px;
   vertical-align: top;
   position: relative;
+}
+
+.left-side {
+  max-width: 45%;
+  width: 45%;
+}
+
+.right-side {
+  background: #ffffff;
+  padding: 0;
+  width: 55%;
+  max-width: 55%;
 }
 
 .toggle-block-feature {
@@ -20,6 +36,7 @@
   transition: all .5s ease-in-out;
   z-index: -1;
   overflow: hidden;
+  padding: 20px;
 }
 
 .toggle-block-feature.active {
@@ -32,7 +49,7 @@
 
 .toggle-block-content {
   position: absolute;
-  bottom: -150px;
+  bottom: -100px;
   left: 0;
   z-index: 1;
   width: 100%;
@@ -71,8 +88,13 @@
 
 .toggle-block .content ul li {
   color: #8c1515;
+  background: transparent;
+  padding: .7em 1em;
   list-style-type: none;
-  margin-bottom: 1.2em;
+}
+
+.toggle-block .content ul li.active {
+  background: #ffffff;
 }
 
 .toggle-links a {
@@ -82,49 +104,42 @@
   text-transform: uppercase;
 }
 
-.toggle-links a:before {
-  font-family: 'FontAwesome';
-  font-size: 10px;
-  content: '\f10c';
-  margin: 0 10px 0 -18px;
-  vertical-align: middle;
-}
-
 .toggle-links a:hover, .toggle-links a:focus {
-  color: #8c1515;
+  color: #333333;
   text-decoration: none;
-  border-bottom: 1px solid #8c1515;
 }
 
-.toggle-links a.active {
-  color: #8c1515;
-  font-weight: 600;
-}
-
-.toggle-links a.active:before {
-  font-family: 'FontAwesome';
-  font-size: 10px;
-  content: '\f111';
-  margin: 0 10px 0 -18px;
-  vertical-align: middle;
-}
-
-.toggle-links a.active:hover, .toggle-links a.active:focus {
-  text-decoration: none;
-  border-bottom: none;
+.toggle-links li.active a {
+  color: #333333;
+  outline: none;
 }
 
 .toggle-links .first {
   margin-top: 2em;
 }
 
+.toggle-block .item-list ul li {
+  margin-left: 0;
+}
+
 
 /* RESPONSIVE STYLES */
 
-@media (max-width: 480px) {
+@media (max-width: 680px) {
   .left-side, .right-side {
     width: 100%;
     max-width: 100%;
+  }
+  .toggle-block {
+    padding: 20px;
+  }
+  .toggle-block-feature {
+    padding: 0;
+    transition: none;
+  }
+  .right-side {
+    background: transparent;
+    padding: 0;
   }
 }
 
