@@ -67,7 +67,7 @@
 }
 
 .toggle-block-feature.active .toggle-block-content {
-  bottom: 0;
+  bottom: 3%;
   transition: 1s;
 }
 
@@ -77,13 +77,16 @@
 }
 
 .toggle-block-content .field-name-field-s-toggle-content {
-  padding: 3% 8%;
-  padding-bottom: 0;
+  padding: 0 8%;
 }
 
 .toggle-block-content .field-name-field-s-toggle-links {
   padding: 3% 8%;
   padding-top: 0;
+}
+
+.toggle-block-content>.field:nth-child(1) {
+  padding-top: 3%;
 }
 
 .toggle-block-content .field-name-field-s-toggle-links .field-item {
