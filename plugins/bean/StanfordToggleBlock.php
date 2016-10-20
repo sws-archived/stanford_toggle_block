@@ -96,7 +96,7 @@ class StanfordToggleBlock extends BeanDefault {
       $right[$fc->item_id]["#suffix"] = "</div>";
 
       // Image.
-      $right[$fc->item_id]['image'] = field_view_field('field_collection_item', $fc, 'field_s_toggle_image', array("label" => "hidden"));
+      $right[$fc->item_id]['image'] = field_view_field('field_collection_item', $fc, 'field_s_toggle_image', array("label" => "hidden", 'settings' => array('image_style' => 'large')));
       $right[$fc->item_id]['image']["#prefix"] = "<div class=\"toggle-block-image\">";
       $right[$fc->item_id]['image']["#suffix"] = "</div>";
       $right[$fc->item_id]['image']["#weight"] = 0;
