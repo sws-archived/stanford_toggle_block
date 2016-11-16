@@ -253,7 +253,7 @@ function stanford_toggle_block_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'large-scaled',
+          'image_style' => 'page-width',
         ),
         'type' => 'image',
         'weight' => 0,
